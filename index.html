@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annisa Selvira — Electrical Engineer | Entrepreneur | Control Systems Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="circuit-canvas"></canvas>
+
+  <div class="scroll-indicator">
+    <a class="scroll-dot active" href="#hero"      data-section="hero"></a>
+    <a class="scroll-dot"        href="#about"     data-section="about"></a>
+    <a class="scroll-dot"        href="#portfolio" data-section="portfolio"></a>
+    <a class="scroll-dot"        href="#skills"    data-section="skills"></a>
+    <a class="scroll-dot"        href="#contact"   data-section="contact"></a>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">[ CLOSE ]</button>
+      <div class="modal-img"    id="modal-img"></div>
+      <div class="modal-body">
+        <div class="modal-cat"    id="modal-cat"></div>
+        <div class="modal-title"  id="modal-title"></div>
+        <div class="modal-desc"   id="modal-desc"></div>
+        <div class="modal-specs"  id="modal-specs"></div>
+        <div class="project-tags" id="modal-tags"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">AS<span>_</span>ENGINEER</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#" class="nav-cta" onclick="downloadCV(event)">⬇ Download CV</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="hero-grid">
+
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="blink">▮</span> PORTFOLIO
+        </div>
+        <h1 class="hero-name">
+          <span class="line1">Annisa Selvira</span>
+          <span class="line2">Ra'ina Gustiyaningsih</span>
+        </h1>
+        <div class="hero-title">
+          <b>Electrical Engineer</b> · <b>Entrepreneur</b> · <b>Control Systems</b> Specialist
+        </div>
+        <p class="hero-desc">
+          Award-winning Electrical Engineer (Universitas Telkom, GPA 3.53/4.00) — Juara 1 KRI 2023 Regional 1,
+          peneliti terpublikasi hybrid power generation, dan Founder aktif
+          <b>Jasa Transport Selwi</b> (7 kendaraan, 1.000+ klien, Kalimantan Tengah).
+        </p>
+        <div class="hero-btns">
+          <a href="#portfolio" class="btn-primary">⚡ Lihat Proyek</a>
+          <a href="#" class="btn-outline" onclick="downloadCV(event)">⬇ Download CV</a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal reveal-delay-2">
+        <div class="panel-header">
+          <span>// SYSTEM STATUS</span>
+          <div class="status-dot"></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-val" id="count-gpa">0</div>
+            <div class="stat-label">GPA / 4.00</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="count-proj">0</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="count-clients">0</div>
+            <div class="stat-label">Clients (Selwi)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" id="count-award">🥇</div>
+            <div class="stat-label">KRI 2023 Reg.1</div>
+          </div>
+        </div>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <span class="skill-bar-label">Embedded C/C++</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+            <span class="skill-pct">92%</span>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-bar-label">Python / ML</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-bar-label">PLC / Control Sys</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-bar-label">PCB Design</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+            <span class="skill-pct">82%</span>
+          </div>
+          <div class="skill-bar-item">
+            <span class="skill-bar-label">Renewable Energy</span>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-tag">01 — Profile</div>
+      <h2 class="section-title">Tentang <span>Saya</span></h2>
+      <div class="about-grid">
+
+        <div class="about-text reveal">
+          <p>
+            <b>Electrical Engineer</b> lulusan Universitas Telkom (GPA 3.53/4.00) dengan spesialisasi
+            di control systems automation, embedded systems, dan renewable energy simulation.
+            Pemimpin tim peraih <b>Juara 1 KRI 2023 Regional 1</b> dan penulis
+            publikasi peer-reviewed tentang hybrid power generation untuk elektrifikasi pulau terpencil.
+          </p>
+          <p>
+            Selain karier engineering, saya adalah <b>Founder & Operations Manager</b> aktif dari
+            <b>Jasa Transport Selwi</b> (Mar 2023–Sekarang) — bisnis logistik freight B2B
+            di Kalimantan Tengah dengan 7 kendaraan, 7 driver, dan 1.000+ klien aktif.
+            Memiliki track record langsung dalam P&L ownership, alokasi sumber daya,
+            pengembangan SOP, dan kepemimpinan tim.
+          </p>
+          <p>
+            Berkomitmen mendorong <b>operational excellence</b> dan dampak teknis terukur
+            di lingkungan manufaktur, energi, atau industrial technology.
+          </p>
+
+          <!-- Entrepreneur Card -->
+          <div class="entrepreneur-card">
+            <div class="ec-header">
+              <span class="ec-icon">🚛</span>
+              <div>
+                <div class="ec-title">Jasa Transport Selwi</div>
+                <div class="ec-sub">Founder & Operations Manager · Mar 2023 – Sekarang</div>
+              </div>
+            </div>
+            <div class="ec-stats">
+              <div class="ec-stat"><span>7</span>Kendaraan</div>
+              <div class="ec-stat"><span>7</span>Driver</div>
+              <div class="ec-stat"><span>1.000+</span>Klien</div>
+              <div class="ec-stat"><span>3+</span>Tahun</div>
+            </div>
+            <p class="ec-desc">
+              B2B freight logistics lintas kota di Kalimantan Tengah. Full P&L ownership,
+              route scheduling, fleet maintenance, SOP development, dan client relationship management.
+            </p>
+          </div>
+
+          <div class="cert-list" style="margin-top:1.5rem">
+            <div class="cert-item">
+              <span class="cert-icon">🏆</span>
+              <span class="cert-name">1st Place — KRI 2023 Regional 1, Divisi KRSRI (Autonomous Rescue Robot)</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">📄</span>
+              <span class="cert-name">Peer-Reviewed Publication: Wind Turbine Design — Karimunjawa Island Power Generation</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">🏅</span>
+              <span class="cert-name">Fundamental AI & Coding Training — Kemdikdasmen (Mei 2025)</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">🏅</span>
+              <span class="cert-name">Python for Data Professional: Beginner → EDA — DQLab Bootcamp (2021)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="reveal reveal-delay-1">
+          <div class="exp-timeline">
+            <div class="exp-item">
+              <div class="exp-year">MAR 2023 — SEKARANG</div>
+              <div class="exp-role">Founder & Operations Manager</div>
+              <div class="exp-co">Jasa Transport Selwi — Kalimantan Tengah</div>
+              <div class="exp-desc">Mendirikan & mengelola bisnis logistik freight B2B dari nol: 7 kendaraan, 7 driver, 1.000+ klien. Full P&L ownership, SOP development, fleet management, dan client relations.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-year">MEI 2024 — MAR 2026</div>
+              <div class="exp-role">Branch Coordinator & Teacher</div>
+              <div class="exp-co">Coding Bee Academy — Kab. Bandung Barat</div>
+              <div class="exp-desc">Mengelola 5+ pengajar & 50+ siswa aktif; securing 3+ kemitraan institusional; meningkatkan enrollment 20% dalam 12 bulan; retensi siswa >85%.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-year">OKT 2021 — OKT 2023</div>
+              <div class="exp-role">Research Laboratory Assistant</div>
+              <div class="exp-co">EIRRG — Universitas Telkom, Bandung</div>
+              <div class="exp-desc">PCB schematic capture & SMD layout (Autodesk Eagle) untuk 5+ prototipe robotika. Mengurangi lead time procurement ~30% melalui sistem monitoring Excel terstruktur.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-year">JUL 2022 — SEP 2022</div>
+              <div class="exp-role">Engineering Intern</div>
+              <div class="exp-co">PT Telkom Indonesia — Kotawaringin Timur, Kalteng</div>
+              <div class="exp-desc">Analisis 10+ diagram panel ATS & single-line diagram; dokumentasi konfigurasi relay proteksi untuk 5+ sistem panel di lingkungan telekomunikasi industri aktif.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-year">AGS 2019 — AGS 2023</div>
+              <div class="exp-role">S1 Teknik Elektro — GPA 3.53/4.00</div>
+              <div class="exp-co">Universitas Telkom, Bandung</div>
+              <div class="exp-desc">Spesialisasi: Control Systems, Power Systems, Automation & Smart Energy. Capstone: Hybrid renewable energy feasibility study → publikasi peer-reviewed.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO ═══ -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-tag">02 — Work</div>
+      <h2 class="section-title">Galeri <span>Proyek</span></h2>
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+        <button class="filter-btn" data-filter="energy">Renewable Energy</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="iot">IoT</button>
+        <button class="filter-btn" data-filter="robotics">Robotics</button>
+      </div>
+      <div class="portfolio-grid" id="portfolio-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-tag">03 — Expertise</div>
+      <h2 class="section-title">Bidang <span>Keahlian</span></h2>
+      <div class="skills-grid">
+
+        <div class="skill-cat reveal">
+          <div class="skill-cat-icon">⚙️</div>
+          <div class="skill-cat-name">Control & Automation</div>
+          <div class="skill-pills">
+            <span class="pill">PLC Omron (Advanced)</span>
+            <span class="pill">MATLAB/Simulink</span>
+            <span class="pill">DIgSILENT PowerFactory</span>
+            <span class="pill">HOMER</span>
+            <span class="pill">SCADA Systems</span>
+            <span class="pill">Proteus / PSPICE</span>
+          </div>
+        </div>
+
+        <div class="skill-cat reveal reveal-delay-1">
+          <div class="skill-cat-icon">🔬</div>
+          <div class="skill-cat-name">Embedded Systems & Hardware</div>
+          <div class="skill-pills">
+            <span class="pill">Arduino Uno/Mega</span>
+            <span class="pill">STM32</span>
+            <span class="pill">NodeMCU ESP8266</span>
+            <span class="pill">PCB Design SMD/Non-SMD</span>
+            <span class="pill">Autodesk Eagle</span>
+            <span class="pill">Sensor & Actuator Integration</span>
+          </div>
+        </div>
+
+        <div class="skill-cat reveal reveal-delay-2">
+          <div class="skill-cat-icon">💻</div>
+          <div class="skill-cat-name">Programming</div>
+          <div class="skill-pills">
+            <span class="pill">C/C++ (Advanced)</span>
+            <span class="pill">Python (Advanced)</span>
+            <span class="pill">Pandas / NumPy</span>
+            <span class="pill">Scikit-learn</span>
+            <span class="pill">MySQL (Intermediate)</span>
+            <span class="pill">Java / C#</span>
+          </div>
+        </div>
+
+        <div class="skill-cat reveal">
+          <div class="skill-cat-icon">🌱</div>
+          <div class="skill-cat-name">Renewable Energy</div>
+          <div class="skill-pills">
+            <span class="pill">QBlade Wind Turbine</span>
+            <span class="pill">PVsyst Solar Simulation</span>
+            <span class="pill">HOMER Hybrid Optimization</span>
+            <span class="pill">On-Grid & Off-Grid PV</span>
+            <span class="pill">LCOE / NPV / LCC</span>
+          </div>
+        </div>
+
+        <div class="skill-cat reveal reveal-delay-1">
+          <div class="skill-cat-icon">🤖</div>
+          <div class="skill-cat-name">Data Science & AI</div>
+          <div class="skill-pills">
+            <span class="pill">Supervised ML</span>
+            <span class="pill">EDA</span>
+            <span class="pill">Feature Engineering</span>
+            <span class="pill">Confusion Matrix Analysis</span>
+            <span class="pill">Matplotlib</span>
+            <span class="pill">SQL & Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-cat reveal reveal-delay-2">
+          <div class="skill-cat-icon">🚀</div>
+          <div class="skill-cat-name">Operations & Leadership</div>
+          <div class="skill-pills">
+            <span class="pill">Business Operations (P&L)</span>
+            <span class="pill">Fleet & Resource Management</span>
+            <span class="pill">SOP Development</span>
+            <span class="pill">KPI Monitoring</span>
+            <span class="pill">Team Leadership</span>
+            <span class="pill">Financial Modeling</span>
+            <span class="pill">Risk Analysis</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-tag">04 — Contact</div>
+      <h2 class="section-title">Hubungi <span>Saya</span></h2>
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <p style="color:var(--text-dim);font-size:1rem;line-height:1.8;margin-bottom:1rem;">
+            Terbuka untuk peluang kerja engineering, kolaborasi proyek, atau konsultasi teknis.
+            Hubungi saya melalui form atau kontak di bawah ini.
+          </p>
+          <div class="contact-line">
+            <span class="contact-icon">📧</span>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-val"><a href="mailto:annisaselvira05@gmail.com">annisaselvira05@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="contact-icon">📱</span>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-val"><a href="tel:+6285828650417">+62 858-2865-0417</a></div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="contact-icon">📍</span>
+            <div>
+              <div class="contact-label">Lokasi</div>
+              <div class="contact-val">Bandung, Jawa Barat</div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <div class="contact-label">Ketersediaan</div>
+              <div class="contact-val" style="color:var(--cyan)">● Tersedia untuk Peluang Baru</div>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="https://linkedin.com/in/nnsslvr" target="_blank" class="social-btn">in LinkedIn</a>
+            <a href="#" class="social-btn">◆ GitHub</a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <form id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" placeholder="Nama lengkap" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="email@domain.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subjek</label>
+              <select id="subject">
+                <option value="">— Pilih Jenis Inquiry —</option>
+                <option>Peluang Kerja / Rekrutmen</option>
+                <option>Kolaborasi Proyek Engineering</option>
+                <option>Konsultasi Teknis</option>
+                <option>Kemitraan Bisnis</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Pesan</label>
+              <textarea id="message" placeholder="Deskripsikan kebutuhan atau pertanyaan Anda..." required></textarea>
+            </div>
+            <div class="form-note">* Semua pesan direspon dalam 1x24 jam pada hari kerja</div>
+            <div class="form-success" id="form-success">
+              ✓ PESAN TERKIRIM — Terima kasih! Saya akan segera menghubungi Anda.
+            </div>
+            <button type="submit" class="btn-primary" style="align-self:flex-start">⚡ Kirim Pesan</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-copy">
+      © 2025 <span>Annisa Selvira Ra'ina Gustiyaningsih</span> — Electrical Engineer · Entrepreneur
+    </div>
+    <div style="display:flex;gap:1.5rem;align-items:center">
+      <a href="#" onclick="downloadCV(event)"
+         style="font-family:var(--mono);font-size:0.65rem;color:var(--amber);text-decoration:none;letter-spacing:0.1em;">
+        ⬇ DOWNLOAD CV
+      </a>
+      <div class="footer-copy">Bandung, Jawa Barat</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

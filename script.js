@@ -1,12 +1,3 @@
-/* ============================================================
-   PORTFOLIO — Annisa Selvira Ra'ina Gustiyaningsih
-   script.js — Project Data & Interactivity
-   CV Version: Final2
-   ============================================================ */
-
-// ============================================================
-// PROJECT DATA — dari CV Final2
-// ============================================================
 const projects = [
   {
     id: 1, emoji: '🔥',
@@ -122,9 +113,7 @@ const projects = [
   },
 ];
 
-// ============================================================
 // RENDER PROJECTS
-// ============================================================
 function renderProjects(filter = 'all') {
   const grid = document.getElementById('portfolio-grid');
   grid.innerHTML = '';
@@ -160,9 +149,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// ============================================================
 // MODAL
-// ============================================================
 function openModal(p) {
   const modalImg = document.getElementById('modal-img');
   modalImg.textContent = p.emoji;
@@ -186,26 +173,34 @@ document.getElementById('modal').addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ============================================================
 // CONTACT FORM
-// ============================================================
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type=submit]');
   btn.textContent = '⏳ Mengirim...';
   btn.disabled = true;
-  setTimeout(() => {
-    document.getElementById('form-success').classList.add('show');
-    e.target.reset();
+
+  const data = new FormData(e.target);
+
+  fetch('https://formspree.io/f/xwvgkvay', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(res => {
+    if (res.ok) {
+      document.getElementById('form-success').classList.add('show');
+      e.target.reset();
+      setTimeout(() => document.getElementById('form-success').classList.remove('show'), 5000);
+    }
+  })
+  .finally(() => {
     btn.textContent = '⚡ Kirim Pesan';
     btn.disabled = false;
-    setTimeout(() => document.getElementById('form-success').classList.remove('show'), 5000);
-  }, 1500);
+  });
 }
 
-// ============================================================
-// DOWNLOAD CV — taruh file PDF di folder yang sama
-// ============================================================
+// DOWNLOAD CV
 function downloadCV(e) {
   e.preventDefault();
   const link = document.createElement('a');
@@ -214,9 +209,7 @@ function downloadCV(e) {
   link.click();
 }
 
-// ============================================================
 // COUNTER ANIMATION
-// ============================================================
 function animateCounter(el, target, suffix = '', decimals = 0) {
   let current = 0;
   const step = target / 60;
@@ -240,17 +233,13 @@ const counterObserver = new IntersectionObserver(entries => {
 const heroPanel = document.querySelector('.hero-panel');
 if (heroPanel) counterObserver.observe(heroPanel);
 
-// ============================================================
 // SCROLL REVEAL
-// ============================================================
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ============================================================
 // SCROLL INDICATOR
-// ============================================================
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -265,9 +254,7 @@ const sectionObserver = new IntersectionObserver(entries => {
   if (el) sectionObserver.observe(el);
 });
 
-// ============================================================
 // CUSTOM CURSOR
-// ============================================================
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -283,9 +270,7 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
   el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.width='36px'; ring.style.height='36px'; });
 });
 
-// ============================================================
 // CIRCUIT CANVAS BACKGROUND
-// ============================================================
 (function(){
   const canvas=document.getElementById('circuit-canvas');
   const ctx=canvas.getContext('2d');

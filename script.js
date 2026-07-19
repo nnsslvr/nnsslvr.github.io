@@ -270,6 +270,121 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
   el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.width='36px'; ring.style.height='36px'; });
 });
 
+// HERO "VIDEO" BACKGROUND — animated particle network + oscilloscope wave
+(function(){
+  const canvas = document.getElementById('hero-video-bg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let w, h, dpr;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = hero.offsetWidth; h = hero.offsetHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    initNodes();
+  }
+
+  // Particle nodes ("konstelasi" elektronik)
+  let nodes = [];
+  function initNodes(){
+    const count = Math.max(28, Math.min(60, Math.floor((w*h)/28000)));
+    nodes = Array.from({length: count}, () => ({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-0.5)*0.25, vy: (Math.random()-0.5)*0.25,
+      r: 1.2 + Math.random()*1.6,
+      pulse: Math.random()*Math.PI*2,
+      color: Math.random() > 0.78 ? '#f59e0b' : '#22d3ee'
+    }));
+  }
+
+  const LINK_DIST = 140;
+  let waveOffset = 0;
+  let t = 0;
+
+  function drawScanWave(){
+    // Baris "osiloskop" tipis di dekat bagian bawah hero
+    const baseY = h * 0.82;
+    const amp = 14;
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(34,211,238,0.35)';
+    ctx.lineWidth = 1.4;
+    for (let x = 0; x <= w; x += 4){
+      const y = baseY
+        + Math.sin((x*0.02) + waveOffset) * amp
+        + Math.sin((x*0.05) + waveOffset*1.7) * (amp*0.35);
+      x === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+
+    // Trace kedua, lebih redup, warna amber
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(245,158,11,0.18)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= w; x += 4){
+      const y = baseY + 10
+        + Math.sin((x*0.018) - waveOffset*1.3) * (amp*0.6);
+      x === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+
+    // Update & gambar node
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      n.pulse += 0.03;
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+    });
+
+    // Garis penghubung antar node yang berdekatan
+    for (let i = 0; i < nodes.length; i++){
+      for (let j = i+1; j < nodes.length; j++){
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x-b.x, dy = a.y-b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < LINK_DIST){
+          ctx.globalAlpha = (1 - dist/LINK_DIST) * 0.35;
+          ctx.strokeStyle = '#22d3ee';
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    // Titik node dengan glow berdenyut
+    nodes.forEach(n => {
+      const glow = 0.5 + Math.sin(n.pulse)*0.5;
+      ctx.beginPath();
+      ctx.fillStyle = n.color;
+      ctx.globalAlpha = 0.55 + glow*0.45;
+      ctx.arc(n.x, n.y, n.r + glow*0.8, 0, Math.PI*2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    drawScanWave();
+
+    waveOffset += 0.02;
+    t++;
+    if (!reduceMotion) requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  draw();
+  if (reduceMotion) draw(); // gambar satu frame statis saja
+})();
+
 // CIRCUIT CANVAS BACKGROUND
 (function(){
   const canvas=document.getElementById('circuit-canvas');

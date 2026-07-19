@@ -51,15 +51,16 @@
 
   <!-- ═══ HERO ═══ -->
   <section id="hero">
+    <canvas id="hero-video-bg"></canvas>
     <div class="hero-grid">
 
       <div class="hero-content">
         <div class="hero-tag">
-          <span class="blink">▮</span> PORTFOLIO
+          <span class="blink">▮</span> SYSTEM ONLINE — PORTFOLIO v2.0
         </div>
         <h1 class="hero-name">
-          <span class="line1">Annisa Selvira</span>
-          <span class="line2">Ra'ina Gustiyaningsih</span>
+          <span class="line1">Annisa</span>
+          <span class="line2">Selvira</span>
         </h1>
         <div class="hero-title">
           <b>Electrical Engineer</b> · <b>Entrepreneur</b> · <b>Control Systems</b> Specialist
@@ -390,7 +391,7 @@
         </div>
 
         <div class="reveal reveal-delay-1">
-          <form action="https://formspree.io/f/xwvgkvay" method="POST">
+          <form id="contact-form" onsubmit="handleSubmit(event)">
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Nama</label>

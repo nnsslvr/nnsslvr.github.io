@@ -72,15 +72,15 @@ const projects = [
   {
     id: 6, emoji: '🦾',
     category: 'robotics', catLabel: 'Robotics',
-    title: 'Autonomous Rescue Robot — KRI 2023 🥇',
-    desc: 'Robot penyelamat otonom untuk KRI 2023 Divisi KRSRI. Mampu menavigasi simulasi lingkungan bencana (gempa & longsor) dan mendeteksi korban secara otonom. Juara 1 Regional 1 Indonesian Robot Contest 2023.',
-    detail: 'Memimpin tim 4 orang interdisiplin untuk mendesain dan membangun robot penyelamat otonom pada Indonesian Robot Contest (KRI) 2023, Divisi KRSRI (Kontes Robot Seni Budaya Indonesia).\n\nRobot dirancang untuk:\n• Menavigasi lingkungan simulasi bencana (puing gempa & tanah longsor)\n• Mendeteksi korban secara otonom\n\nBerkompetisi melawan tim universitas se-Regional 1 dan berhasil meraih Juara 1.',
-    tags: ['Robotics', 'Autonomous System', 'Sensor Integration', 'Embedded Systems', 'Team Lead'],
+    title: 'ARJUNA — Autonomous Hexapod SAR Robot 🥇',
+    desc: 'Robot penyelamat otonom berkaki enam (hexapod) untuk KRI 2023 Divisi KRSRI (Kontes Robot SAR Indonesia). Menavigasi arena multi-ruangan, mendeteksi & memadamkan titik api dengan thermal sensor, lalu mengevakuasi korban ke safe zone — sepenuhnya otonom. Juara 1 Regional 1.',
+    detail: 'Memimpin tim untuk mendesain dan membangun ARJUNA, robot SAR otonom berkaki enam (hexapod), pada Indonesian Robot Contest (KRI) 2023, Divisi KRSRI (Kontes Robot SAR Indonesia).\n\nSistem sensor & kontrol:\n• Navigasi wall-following + mapping menggunakan array 8–10 sensor ultrasonik SRF05 tersusun radial\n• Deteksi titik api dengan thermal sensor array AMG8833 (8×8 piksel, jangkauan ±2m)\n• Identifikasi korban menggunakan color sensor TCS3200\n• Gait 6 kaki (3-DOF per kaki) dikendalikan algoritma Inverse Kinematics, distabilkan kontrol PID berbasis sensor jarak\n• 18 servo Dynamixel MX-28, rangka akrilik + 3D print, bodi 4 lantai\n• Sirkuit relay sebagai trigger extinguisher & sensor kompas untuk homing otomatis\n\nRobot menavigasi arena multi-ruangan simulasi bencana, mendeteksi & memadamkan api, menyelamatkan korban ke safe zone menggunakan gripper, lalu kembali ke home — seluruhnya tanpa kendali manual. Berkompetisi melawan tim universitas se-Regional 1 dan meraih Juara 1.',
+    tags: ['Hexapod', 'Inverse Kinematics', 'PID Control', 'Thermal Sensor', 'Sensor Integration', 'Embedded Systems', 'Team Lead'],
     specs: [
-      { k: 'Kompetisi', v: 'KRI 2023' },
-      { k: 'Divisi', v: 'KRSRI' },
-      { k: 'Peran', v: 'Team Lead (4 orang)' },
-      { k: 'Prestasi', v: '🥇 Juara 1 Regional 1' },
+      { k: 'Konfigurasi', v: 'Hexapod — 18 Servo Dynamixel MX-28' },
+      { k: 'Sensor', v: 'SRF05 (×10) + AMG8833 + TCS3200' },
+      { k: 'Kontrol', v: 'Inverse Kinematics + PID' },
+      { k: 'Prestasi', v: '🥇 Juara 1 Regional 1, KRI 2023' },
     ]
   },
   {
@@ -204,7 +204,7 @@ function handleSubmit(e) {
 function downloadCV(e) {
   e.preventDefault();
   const link = document.createElement('a');
-  link.href = 'CV_Annisa_Selvira_Final2.pdf';
+  link.href = 'CV_Annisa_Selvira_Revised.pdf';
   link.download = 'CV_Annisa_Selvira_Ra_ina_Gustiyaningsih.pdf';
   link.click();
 }
@@ -382,7 +382,7 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
   resize();
   window.addEventListener('resize', resize);
   draw();
-  if (reduceMotion) draw(); // gambar satu frame statis saja
+  if (reduceMotion) draw(); 
 })();
 
 // CIRCUIT CANVAS BACKGROUND

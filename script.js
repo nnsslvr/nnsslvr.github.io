@@ -182,10 +182,67 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 // MODAL
-function openModal(p) {
+let currentMedia = [];
+let currentMediaIdx = 0;
+ 
+function buildMediaList(p) {
+  const media = [];
+  if (p.video) media.push({ type: 'video', src: p.video });
+  if (p.photos && p.photos.length) p.photos.forEach(src => media.push({ type: 'image', src }));
+  return media;
+}
+ 
+function renderMedia() {
   const modalImg = document.getElementById('modal-img');
-  modalImg.textContent = p.emoji;
-  Object.assign(modalImg.style, { fontSize:'6rem', display:'flex', alignItems:'center', justifyContent:'center', background:'var(--bg3)' });
+  if (!currentMedia.length) return;
+  const m = currentMedia[currentMediaIdx];
+ 
+  const inner = m.type === 'video'
+    ? `<video src="${m.src}" controls playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;background:#000"></video>`
+    : `<img src="${m.src}" alt="" style="width:100%;height:100%;object-fit:cover" />`;
+ 
+  const navBtnStyle = `position:absolute;top:50%;transform:translateY(-50%);background:rgba(9,12,15,0.6);
+    border:1px solid rgba(255,255,255,0.25);color:#fff;width:36px;height:36px;font-size:1.3rem;line-height:1;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:4px;z-index:2;`;
+ 
+  const nav = currentMedia.length > 1 ? `
+    <button style="${navBtnStyle}left:10px;" onclick="event.stopPropagation();modalMediaStep(-1)">‹</button>
+    <button style="${navBtnStyle}right:10px;" onclick="event.stopPropagation();modalMediaStep(1)">›</button>
+    <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2;">
+      ${currentMedia.map((_, i) => `<span onclick="event.stopPropagation();modalMediaGo(${i})"
+        style="width:7px;height:7px;border-radius:50%;cursor:pointer;background:${i === currentMediaIdx ? '#f59e0b' : 'rgba(255,255,255,0.4)'}"></span>`).join('')}
+    </div>` : '';
+ 
+  modalImg.innerHTML = `<div style="position:relative;width:100%;height:100%">${inner}${nav}</div>`;
+}
+ 
+function modalMediaStep(dir) {
+  const vid = document.querySelector('#modal-img video');
+  if (vid) vid.pause();
+  currentMediaIdx = (currentMediaIdx + dir + currentMedia.length) % currentMedia.length;
+  renderMedia();
+}
+function modalMediaGo(i) {
+  const vid = document.querySelector('#modal-img video');
+  if (vid) vid.pause();
+  currentMediaIdx = i;
+  renderMedia();
+}
+ 
+function openModal(p) {
+  currentMedia = buildMediaList(p);
+  currentMediaIdx = 0;
+  const modalImg = document.getElementById('modal-img');
+ 
+  if (currentMedia.length) {
+    Object.assign(modalImg.style, { fontSize: '', display: 'block', background: '#000' });
+    renderMedia();
+  } else {
+    modalImg.innerHTML = '';
+    modalImg.textContent = p.emoji;
+    Object.assign(modalImg.style, { fontSize: '6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg3)' });
+  }
+ 
   document.getElementById('modal-cat').textContent = p.catLabel;
   document.getElementById('modal-title').textContent = p.title;
   document.getElementById('modal-desc').innerHTML = p.detail.replace(/\n/g, '<br>');
@@ -199,12 +256,14 @@ function openModal(p) {
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow = '';
+  const vid = document.querySelector('#modal-img video');
+  if (vid) vid.pause();
 }
 document.getElementById('modal').addEventListener('click', e => {
   if (e.target === document.getElementById('modal')) closeModal();
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
+ 
 // CONTACT FORM
 function handleSubmit(e) {
   e.preventDefault();

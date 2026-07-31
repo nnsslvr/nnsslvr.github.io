@@ -3,6 +3,7 @@ const projects = [
     id: 1, emoji: '🔥',
     category: 'embedded', catLabel: 'Embedded Systems',
     title: 'Multi-Sensor Industrial Fire Safety System',
+    video: 'videos/multi-sensor-fire-safety-simulation.mp4',
     desc: 'Sistem keamanan kebakaran industri otonom berbasis Arduino dengan dual flame sensor & analog temperature sensor. Dual-stage logic Warning/Danger dengan safety-latching alarm & secure reset interlock.',
     detail: 'Merancang standalone Arduino-based industrial fire safety system yang mengintegrasikan dual flame sensor dan analog temperature sensor dengan dual-stage risk logic:\n• Warning: suhu >40°C atau deteksi api tunggal\n• Danger: suhu >60°C / deteksi api ganda / Emergency Button trigger\n\nDilengkapi safety-latching alarm mechanism (1000 Hz buzzer + LED indicator) dan secure multi-condition reset interlock — hanya dapat direset jika semua parameter kembali aman. Sepenuhnya didesain, diprogram, dan divalidasi pada prototipe hardware fisik.',
     tags: ['Arduino', 'Embedded C', 'Dual Flame Sensor', 'Safety Logic', 'Hardware Prototype'],
@@ -17,6 +18,13 @@ const projects = [
     id: 2, emoji: '💨',
     category: 'energy', catLabel: 'Renewable Energy',
     title: 'Hybrid Power System — Karimunjawa Island',
+    photos: [
+      'photos/hybrid-power-karimunjawa-01.jpg',
+      'photos/hybrid-power-karimunjawa-02.jpg',
+      'photos/hybrid-power-karimunjawa-03.jpg',
+      'photos/hybrid-power-karimunjawa-04.jpg',
+      'photos/hybrid-power-karimunjawa-05.jpg'
+    ],
     desc: 'Analisis tekno-ekonomi 4 konfigurasi hybrid power generation untuk Pulau Karimunjawa. PLTD+Wind dipilih sebagai solusi optimal: mereduksi BPP dari Rp1.326 ke Rp1.231/kWh (2023–2043). Dipublikasikan peer-reviewed.',
     detail: 'Memimpin studi kelayakan tekno-ekonomi sistem pembangkitan hybrid di Pulau Karimunjawa — membandingkan 4 konfigurasi: PLTD only, PLTD+Solar, PLTD+Wind, dan PLTS+PLTB hybrid.\n\nHasil: PLTD+Wind diidentifikasi sebagai solusi optimal, mereduksi Cost of Generation dari Rp1.326/kWh ke Rp1.231/kWh selama proyeksi 20 tahun (2023–2043).\n\nMerancang blade turbin angin 100 kW menggunakan QBlade (NACA 2414 airfoil) dan memvalidasi stabilitas sistem di bawah kondisi short-circuit dan gangguan intermitency menggunakan DIgSILENT PowerFactory. Menghasilkan publikasi peer-reviewed tentang elektrifikasi pulau terpencil.',
     tags: ['QBlade', 'HOMER', 'DIgSILENT', 'NACA 2414', 'Techno-Economic', 'Published'],
@@ -31,6 +39,11 @@ const projects = [
     id: 3, emoji: '🤖',
     category: 'ml', catLabel: 'Machine Learning',
     title: 'Handwritten Letter Recognition — EMNIST',
+    photos: [
+      'photos/emnist-letter-recognition-01.jpg',
+      'photos/emnist-letter-recognition-02.jpg',
+      'photos/emnist-letter-recognition-03.jpg'
+    ],
     desc: 'Pipeline end-to-end OCR-style multi-class classification menggunakan Scikit-learn & Pandas pada 145.600-sample EMNIST Letters dataset. Mencakup preprocessing, feature engineering, EDA, supervised classification, dan evaluasi confusion matrix.',
     detail: 'Membangun pipeline ML end-to-end untuk klasifikasi huruf tulisan tangan (OCR-style) pada dataset EMNIST Letters (145.600 sampel).\n\nPipeline mencakup:\n• Large-scale preprocessing: normalisasi, reshaping, label encoding, train-test split\n• Feature engineering untuk meningkatkan generalisasi model\n• Supervised multi-class classification (Scikit-learn)\n• EDA & visualisasi distribusi karakter (Matplotlib)\n• Evaluasi performa: accuracy metrics & confusion matrix analysis\n• Reliable recognition across all 26 alphabet classes',
     tags: ['Python', 'Scikit-learn', 'NumPy', 'Pandas', 'Matplotlib', 'EMNIST', 'OCR'],
@@ -45,6 +58,11 @@ const projects = [
     id: 4, emoji: '☀️',
     category: 'energy', catLabel: 'Renewable Energy',
     title: 'Solar PV On-Grid System Design (PLTS)',
+    photos: [
+      'photos/solar-pv-offgrid-01.jpg',
+      'photos/solar-pv-offgrid-02.jpg',
+      'photos/solar-pv-offgrid-03.jpg'
+    ],
     desc: 'Desain & analisis ekonomi sistem PLTS on-grid untuk aplikasi residensial di Jakarta menggunakan PVsyst. Output tahunan estimasi 6.40 MWh/year, performance ratio 79.42%. Evaluasi lengkap LCC, LCOE, NPV, PI, dan Payback Period.',
     detail: 'Merancang sistem PLTS on-grid untuk aplikasi residensial di Kebayoran Lama, Jakarta:\n• Load calculation, PV sizing, pemilihan inverter, spesifikasi komponen\n• Simulasi performa menggunakan PVsyst: 6.40 MWh/year estimasi produksi tahunan, performance ratio 79.42%\n• Evaluasi tekno-ekonomi lengkap: Life Cycle Cost (LCC), Levelized Cost of Energy (LCOE), NPV, Profitability Index, dan Payback Period\n• Solar irradiance analysis, household load profiling\n• Estimasi reduksi emisi CO₂ untuk implementasi energi berkelanjutan',
     tags: ['PVsyst', 'LCOE', 'NPV', 'LCC', 'Solar PV', 'Energy Economics'],
@@ -59,6 +77,10 @@ const projects = [
     id: 5, emoji: '📡',
     category: 'iot', catLabel: 'IoT',
     title: 'IoT Room Monitoring — Humidity & Temperature',
+    photos: [
+      'photos/iot-room-monitoring-01.jpg',
+      'photos/iot-room-monitoring-02.jpg'
+    ],
     desc: 'Sistem monitoring ruangan real-time berbasis IoT menggunakan NodeMCU ESP8266 & sensor DHT11. Data suhu & kelembaban ditransmisikan via WiFi ke aplikasi mobile custom yang dibangun dengan Kodular.',
     detail: 'Membangun sistem monitoring ruangan berbasis IoT:\n• Hardware: NodeMCU ESP8266 + sensor DHT11\n• Firmware: membaca output analog DHT11, transmisi data via WiFi\n• Interface: aplikasi mobile custom dibangun dengan Kodular untuk remote monitoring\n• Desain lengkap block diagram sistem dan flowchart pipeline data dari sensor input → mikrokontroler processing → tampilan aplikasi mobile',
     tags: ['NodeMCU ESP8266', 'DHT11', 'WiFi', 'Kodular', 'IoT', 'Mobile App'],
@@ -73,6 +95,11 @@ const projects = [
     id: 6, emoji: '🦾',
     category: 'robotics', catLabel: 'Robotics',
     title: 'ARJUNA — Autonomous Hexapod SAR Robot 🥇',
+    photos: [
+      'photos/arjuna-hexapod-01.jpg',
+      'photos/arjuna-hexapod-02.jpg',
+      'photos/arjuna-hexapod-03.jpg'
+    ],
     desc: 'Robot penyelamat otonom berkaki enam (hexapod) untuk KRI 2023 Divisi KRSRI (Kontes Robot SAR Indonesia). Menavigasi arena multi-ruangan, mendeteksi & memadamkan titik api dengan thermal sensor, lalu mengevakuasi korban ke safe zone — sepenuhnya otonom. Juara 1 Regional 1.',
     detail: 'Memimpin tim untuk mendesain dan membangun ARJUNA, robot SAR otonom berkaki enam (hexapod), pada Indonesian Robot Contest (KRI) 2023, Divisi KRSRI (Kontes Robot SAR Indonesia).\n\nSistem sensor & kontrol:\n• Navigasi wall-following + mapping menggunakan array 8–10 sensor ultrasonik SRF05 tersusun radial\n• Deteksi titik api dengan thermal sensor array AMG8833 (8×8 piksel, jangkauan ±2m)\n• Identifikasi korban menggunakan color sensor TCS3200\n• Gait 6 kaki (3-DOF per kaki) dikendalikan algoritma Inverse Kinematics, distabilkan kontrol PID berbasis sensor jarak\n• 18 servo Dynamixel MX-28, rangka akrilik + 3D print, bodi 4 lantai\n• Sirkuit relay sebagai trigger extinguisher & sensor kompas untuk homing otomatis\n\nRobot menavigasi arena multi-ruangan simulasi bencana, mendeteksi & memadamkan api, menyelamatkan korban ke safe zone menggunakan gripper, lalu kembali ke home — seluruhnya tanpa kendali manual. Berkompetisi melawan tim universitas se-Regional 1 dan meraih Juara 1.',
     tags: ['Hexapod', 'Inverse Kinematics', 'PID Control', 'Thermal Sensor', 'Sensor Integration', 'Embedded Systems', 'Team Lead'],
@@ -87,6 +114,11 @@ const projects = [
     id: 7, emoji: '🔒',
     category: 'embedded', catLabel: 'Embedded Systems',
     title: 'Smart Door Lock — Fingerprint Security System',
+    photos: [
+      'photos/smart-door-lock-01.jpg',
+      'photos/smart-door-lock-02.jpg',
+      'photos/smart-door-lock-03.jpg'
+    ],
     desc: 'Smart door lock berbasis fingerprint menggunakan Arduino Uno R3 & solenoid. Logika enrollment, biometric matching >90%, EEPROM storage 5 ID, navigasi LCD, simulasi Proteus, dan validasi hardware fisik.',
     detail: 'Merancang dan membangun sistem smart door lock berbasis fingerprint (hardware + software):\n• MCU: Arduino Uno R3 | Aktuator: solenoid + relay\n• Logic: fingerprint enrollment, biometric matching (>90% confidence threshold)\n• Storage: EEPROM-based untuk hingga 5 fingerprint ID\n• UI: navigasi menu LCD via 4 push button\n• Simulasi di Proteus (PSPICE) dan divalidasi pada prototipe hardware fisik\n• Output: hardware & software report, block diagram, flowchart, source code, demo video',
     tags: ['Arduino Uno R3', 'Embedded C', 'Fingerprint', 'EEPROM', 'Proteus', 'Solenoid'],

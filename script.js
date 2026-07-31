@@ -97,7 +97,8 @@ const projects = [
     title: 'ARJUNA — Autonomous Hexapod SAR Robot 🥇',
     photos: [
       'photos/arjuna-hexapod-01.png',
-      'photos/arjuna-hexapod-02.png'
+      'photos/arjuna-hexapod-02.png',
+      'photos/arjuna-hexapod-03.jpeg'
     ],
     desc: 'Robot penyelamat otonom berkaki enam (hexapod) untuk KRI 2023 Divisi KRSRI (Kontes Robot SAR Indonesia). Menavigasi arena multi-ruangan, mendeteksi & memadamkan titik api dengan thermal sensor, lalu mengevakuasi korban ke safe zone — sepenuhnya otonom. Juara 1 Regional 1.',
     detail: 'Memimpin tim untuk mendesain dan membangun ARJUNA, robot SAR otonom berkaki enam (hexapod), pada Indonesian Robot Contest (KRI) 2023, Divisi KRSRI (Kontes Robot SAR Indonesia).\n\nSistem sensor & kontrol:\n• Navigasi wall-following + mapping menggunakan array 8–10 sensor ultrasonik SRF05 tersusun radial\n• Deteksi titik api dengan thermal sensor array AMG8833 (8×8 piksel, jangkauan ±2m)\n• Identifikasi korban menggunakan color sensor TCS3200\n• Gait 6 kaki (3-DOF per kaki) dikendalikan algoritma Inverse Kinematics, distabilkan kontrol PID berbasis sensor jarak\n• 18 servo Dynamixel MX-28, rangka akrilik + 3D print, bodi 4 lantai\n• Sirkuit relay sebagai trigger extinguisher & sensor kompas untuk homing otomatis\n\nRobot menavigasi arena multi-ruangan simulasi bencana, mendeteksi & memadamkan api, menyelamatkan korban ke safe zone menggunakan gripper, lalu kembali ke home — seluruhnya tanpa kendali manual. Berkompetisi melawan tim universitas se-Regional 1 dan meraih Juara 1.',

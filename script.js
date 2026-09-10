@@ -9,30 +9,56 @@ const projects = [
     tags: ['Arduino', 'Embedded C', 'Dual Flame Sensor', 'Safety Logic', 'Hardware Prototype'],
     specs: [
       { k: 'MCU', v: 'Arduino' },
-      { k: 'Sensor', v: 'Dual Flame + Temp Analog' },
+      { k: 'Sensor', v: 'Dual Flame + Analog Temp' },
       { k: 'Threshold', v: 'Warning 40°C / Danger 60°C' },
       { k: 'Status', v: 'VALIDATED' },
     ]
   },
   {
-    id: 2, emoji: '💨',
-    category: 'energy', catLabel: 'Renewable Energy',
-    title: 'Hybrid Power System — Karimunjawa Island',
+    id: 2, emoji: '🔒',
+    category: 'embedded', catLabel: 'Embedded Systems',
+    title: 'Smart Door Lock — Fingerprint Security System',
     photos: [
-      'photos/hybrid-power-karimunjawa-01.jpg',
-      'photos/hybrid-power-karimunjawa-02.jpg',
-      'photos/hybrid-power-karimunjawa-03.jpg',
-      'photos/hybrid-power-karimunjawa-04.jpg',
-      'photos/hybrid-power-karimunjawa-05.jpg'
+      'photos/smart-door-lock-01.jpg',
+      'photos/smart-door-lock-02.jpg',
+      'photos/smart-door-lock-03.jpg'
     ],
-    desc: 'Analisis tekno-ekonomi 4 konfigurasi hybrid power generation untuk Pulau Karimunjawa. PLTD+Wind dipilih sebagai solusi optimal: mereduksi BPP dari Rp1.326 ke Rp1.231/kWh (2023–2043). Dipublikasikan peer-reviewed.',
-    detail: 'Memimpin studi kelayakan tekno-ekonomi sistem pembangkitan hybrid di Pulau Karimunjawa — membandingkan 4 konfigurasi: PLTD only, PLTD+Solar, PLTD+Wind, dan PLTS+PLTB hybrid.\n\nHasil: PLTD+Wind diidentifikasi sebagai solusi optimal, mereduksi Cost of Generation dari Rp1.326/kWh ke Rp1.231/kWh selama proyeksi 20 tahun (2023–2043).\n\nMerancang blade turbin angin 100 kW menggunakan QBlade (NACA 2414 airfoil) dan memvalidasi stabilitas sistem di bawah kondisi short-circuit dan gangguan intermitency menggunakan DIgSILENT PowerFactory. Menghasilkan publikasi peer-reviewed tentang elektrifikasi pulau terpencil.',
-    tags: ['QBlade', 'HOMER', 'DIgSILENT', 'NACA 2414', 'Techno-Economic', 'Published'],
+    desc: 'Fingerprint-based smart door lock using Arduino Uno R3 & solenoid. Biometric matching >90% confidence, EEPROM storage for 5 IDs, Proteus simulation, and physical hardware validation.',
+    detail: 'Designed and built a fingerprint-based smart door lock system (hardware + software):\n• MCU: Arduino Uno R3 | Actuator: solenoid + relay\n• Fingerprint enrollment & biometric matching (>90% confidence threshold)\n• EEPROM-based storage: up to 5 fingerprint IDs\n• UI: LCD menu navigation via 4 push buttons\n• Simulated in Proteus (PSPICE) + validated on physical hardware prototype\n• Deliverables: report, block diagram, flowchart, source code, demo video',
+    tags: ['Arduino Uno R3', 'Embedded C', 'Fingerprint', 'EEPROM', 'Proteus', 'Solenoid'],
     specs: [
-      { k: 'Kapasitas', v: '100 kW Wind Turbine' },
-      { k: 'BPP Optimal', v: 'Rp1.231/kWh' },
-      { k: 'Proyeksi', v: '2023–2043 (20 tahun)' },
-      { k: 'Status', v: '📄 PEER-REVIEWED' },
+      { k: 'MCU', v: 'Arduino Uno R3' },
+      { k: 'Actuator', v: 'Solenoid + Relay' },
+      { k: 'Confidence', v: '>90%' },
+      { k: 'Status', v: 'VALIDATED' },
+    ]
+  },
+  {
+    id: 3, emoji: '🌐',
+    category: 'web', catLabel: 'Full-Stack Web',
+    title: 'AI Web Portal & Futuristic Authentication System',
+    desc: 'Dynamic web app featuring an AI Portal Landing Page with animated moving backgrounds, a Glassmorphism login/register system, and a secure PHP authentication pipeline with SQL Injection prevention.',
+    detail: 'Built a full-stack web application:\n• Interactive AI Portal Landing Page with moving background & smooth visual animations\n• Modern Glassmorphism login & registration system with responsive styling\n• Secure PHP authentication pipeline using Prepared Statements (bind_param) — eliminates SQL Injection vulnerabilities\n• PHP Native Password Hashing (password_hash) to safeguard user credentials\n• Responsive grid system & component standardization',
+    tags: ['PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript', 'Glassmorphism', 'Security'],
+    specs: [
+      { k: 'Backend', v: 'PHP + MySQL' },
+      { k: 'Security', v: 'Prepared Statements + Password Hash' },
+      { k: 'Design', v: 'Glassmorphism UI' },
+      { k: 'Status', v: 'COMPLETED' },
+    ]
+  },
+  {
+    id: 4, emoji: '🛒',
+    category: 'web', catLabel: 'Full-Stack Web',
+    title: 'Full-Stack E-Commerce Platform',
+    desc: 'End-to-end e-commerce platform with UML blueprints (Class, Sequence, Activity Diagrams), PHP-MySQLi account module, full CRUD relational database, and edge-case routing logic for transaction handling.',
+    detail: 'Developed a full-stack e-commerce platform:\n• UML Design: Class, Sequence, and Activity Diagrams to map secure purchase journeys\n• Account administration module: native PHP-MySQLi for user profile data management\n• Core CRUD relational algorithms: User, Cart, Product, and Shipping modules\n• Edge-case routing logic: transaction failures, payment reversals, courier delivery updates\n• Relational database modeling with MySQL',
+    tags: ['PHP', 'MySQLi', 'OOP', 'UML', 'CRUD', 'MySQL'],
+    specs: [
+      { k: 'Backend', v: 'PHP + MySQLi' },
+      { k: 'Database', v: 'MySQL Relational' },
+      { k: 'Design', v: 'UML Class/Sequence/Activity' },
+      { k: 'Status', v: 'COMPLETED' },
     ]
   },
   {
@@ -55,7 +81,93 @@ const projects = [
     ]
   },
   {
-    id: 4, emoji: '☀️',
+    id: 6, emoji: '🏍️',
+    category: 'systems', catLabel: 'Systems Programming',
+    title: 'Motorbike Rental Terminal Application (CLI)',
+    desc: 'High-performance CLI terminal utility in C for resource allocation coordination of a commercial motorbike rental platform. Modular functional design with low-level memory allocation.',
+    detail: 'Built a CLI terminal application in C:\n• Resource allocation coordination for a commercial motorbike rental platform\n• Modular functional design: asset state tracking, customer registries, fee assessment\n• Low-level memory allocation protocols for system performance stability\n• Low resource overhead execution\n• Variable fee assessment calculations based on duration & vehicle type',
+    tags: ['C', 'CLI', 'Memory Management', 'Modular Design', 'Systems Programming'],
+    specs: [
+      { k: 'Language', v: 'C' },
+      { k: 'Type', v: 'CLI Terminal App' },
+      { k: 'Focus', v: 'Low-level Memory Management' },
+      { k: 'Status', v: 'COMPLETED' },
+    ]
+  },
+  {
+    id: 7, emoji: '🎲',
+    category: 'systems', catLabel: 'Systems Programming',
+    title: 'Interactive Board Game Simulation & OOP',
+    desc: 'Interactive Snakes & Ladders simulator in Python with deterministic random movement. OOP implementation in Java & C# applying inheritance, polymorphism, and encapsulation design patterns.',
+    detail: 'Built an interactive board game simulation:\n• Snakes & Ladders simulator in Python: deterministic random movement mechanics & event handling\n• Clean, scalable code architecture using core Java & C# OOP paradigms\n• Structural design patterns applied:\n  - Inheritance: game entity class hierarchies\n  - Polymorphism: flexible game logic state management\n  - Encapsulation: protected data object access\n• Multi-language implementation: Python, Java, C#',
+    tags: ['Python', 'Java', 'C#', 'OOP', 'Inheritance', 'Polymorphism', 'Encapsulation'],
+    specs: [
+      { k: 'Languages', v: 'Python, Java, C#' },
+      { k: 'Paradigm', v: 'Object-Oriented Programming' },
+      { k: 'Pattern', v: 'Inheritance, Polymorphism, Encapsulation' },
+      { k: 'Status', v: 'COMPLETED' },
+    ]
+  },
+  {
+    id: 8, emoji: '💨',
+    category: 'energy', catLabel: 'Renewable Energy',
+    title: 'Hybrid Power System — Karimunjawa Island',
+    photos: [
+      'photos/hybrid-power-karimunjawa-01.jpg',
+      'photos/hybrid-power-karimunjawa-02.jpg',
+      'photos/hybrid-power-karimunjawa-03.jpg',
+      'photos/hybrid-power-karimunjawa-04.jpg',
+      'photos/hybrid-power-karimunjawa-05.jpg'
+    ],
+    desc: 'Techno-economic feasibility study of 4 hybrid power generation configurations. PLTD+Wind identified as optimal: Cost of Generation reduced from Rp1,326 to Rp1,231/kWh. 100kW blade design using QBlade NACA 2414. Peer-reviewed publication.',
+    detail: 'Led a techno-economic feasibility study for hybrid power generation:\n• Compared 4 configurations: PLTD only, PLTD+Solar, PLTD+Wind, PLTS+PLTB\n• Optimal solution: PLTD+Wind → Cost of Generation Rp1,326 → Rp1,231/kWh (2023–2043)\n• Designed 100 kW wind turbine blade: QBlade (NACA 2414 airfoil)\n• Validated under short-circuit & intermittency conditions in DIgSILENT PowerFactory\n• Outcome: peer-reviewed publication on remote island electrification.',
+    tags: ['QBlade', 'HOMER', 'DIgSILENT', 'NACA 2414', 'Techno-Economic', 'Published'],
+    specs: [
+      { k: 'Kapasitas', v: '100 kW Wind Turbine' },
+      { k: 'BPP Optimal', v: 'Rp1.231/kWh' },
+      { k: 'Proyeksi', v: '2023–2043 (20 years)' },
+      { k: 'Status', v: '📄 PEER-REVIEWED' },
+    ]
+  },
+  {
+    id: 9, emoji: '📡',
+    category: 'iot', catLabel: 'IoT',
+    title: 'IoT Room Monitoring — Humidity & Temperature',
+    photos: [
+      'photos/iot-room-monitoring-01.jpg',
+      'photos/iot-room-monitoring-02.jpg'
+    ],
+    desc: 'Real-time IoT room monitoring system using NodeMCU ESP8266 & DHT11 sensor. Temperature and humidity data transmitted wirelessly via WiFi to a custom mobile app built with Kodular.',
+    detail: 'Built an end-to-end IoT monitoring system:\n• Hardware: NodeMCU ESP8266 + DHT11 sensor\n• Firmware: reads DHT11 output and transmits data via WiFi\n• Interface: custom mobile application built with Kodular for remote monitoring\n• Full data pipeline: sensor → microcontroller → WiFi → mobile app display\n• Complete block diagram & system flowchart design',
+    tags: ['NodeMCU ESP8266', 'DHT11', 'WiFi', 'Kodular', 'IoT', 'Mobile App'],
+    specs: [
+      { k: 'MCU', v: 'NodeMCU ESP8266' },
+      { k: 'Sensor', v: 'DHT11' },
+      { k: 'Interface', v: 'Mobile App — Kodular' },
+      { k: 'Status', v: 'COMPLETED' },
+    ]
+  },
+  {
+    id: 10, emoji: '🦾',
+    category: 'robotics', catLabel: 'Robotics',
+    title: 'Autonomous Rescue Robot — KRI 2023 🥇',
+    photos: [
+      'photos/arjuna-hexapod-01.png',
+      'photos/arjuna-hexapod-02.png',
+      'photos/arjuna-hexapod-03.jpeg'
+    ],
+    desc: 'Autonomous rescue robot for KRI 2023 KRSRI Division. Capable of navigating earthquake & landslide disaster simulations and autonomously detecting victims. 1st Place Regional 1, Indonesian Robot Contest 2023.',
+    detail: 'Led a 4-person interdisciplinary team for KRI 2023:\n• Autonomous robot designed to navigate disaster simulation environments (earthquake & landslide debris)\n• Real-time and autonomous victim detection\n• Competed against university teams across Regional 1\n• Outcome: 🥇 1st Place Regional 1 — KRI 2023, KRSRI Division',
+    tags: ['Robotics', 'Autonomous', 'Sensor Integration', 'Embedded Systems', 'Team Lead'],
+    specs: [
+      { k: 'Competition', v: 'KRI 2023' },
+      { k: 'Division', v: 'KRSRI' },
+      { k: 'Role', v: 'Team Lead (4 members)' },
+      { k: 'Achievement', v: '🥇 1st Place Regional 1' },
+    ]
+  },
+  {
+    id: 11, emoji: '☀️',
     category: 'energy', catLabel: 'Renewable Energy',
     title: 'Solar PV On-Grid System Design (PLTS)',
     photos: [
@@ -63,83 +175,27 @@ const projects = [
       'photos/solar-pv-offgrid-02.jpg',
       'photos/solar-pv-offgrid-03.jpg'
     ],
-    desc: 'Desain & analisis ekonomi sistem PLTS on-grid untuk aplikasi residensial di Jakarta menggunakan PVsyst. Output tahunan estimasi 6.40 MWh/year, performance ratio 79.42%. Evaluasi lengkap LCC, LCOE, NPV, PI, dan Payback Period.',
-    detail: 'Merancang sistem PLTS on-grid untuk aplikasi residensial di Kebayoran Lama, Jakarta:\n• Load calculation, PV sizing, pemilihan inverter, spesifikasi komponen\n• Simulasi performa menggunakan PVsyst: 6.40 MWh/year estimasi produksi tahunan, performance ratio 79.42%\n• Evaluasi tekno-ekonomi lengkap: Life Cycle Cost (LCC), Levelized Cost of Energy (LCOE), NPV, Profitability Index, dan Payback Period\n• Solar irradiance analysis, household load profiling\n• Estimasi reduksi emisi CO₂ untuk implementasi energi berkelanjutan',
+    desc: 'Design & economic analysis of an on-grid Solar PV system for residential application in Jakarta using PVsyst. Estimated annual output 6.40 MWh/year, performance ratio 79.42%. Full LCC, LCOE, NPV, PI, and Payback Period evaluation.',
+    detail: 'Designed an on-grid Solar PV system for a residential application in Kebayoran Lama, Jakarta:\n• Load calculation, PV sizing, inverter selection, and component specification\n• Performance simulation using PVsyst: 6.40 MWh/year estimated annual output, 79.42% performance ratio\n• Full techno-economic evaluation: Life Cycle Cost (LCC), Levelized Cost of Energy (LCOE), NPV, Profitability Index, and Payback Period\n• Solar irradiance analysis & household load profiling\n• CO₂ emission reduction estimation for sustainable energy implementation',
     tags: ['PVsyst', 'LCOE', 'NPV', 'LCC', 'Solar PV', 'Energy Economics'],
     specs: [
-      { k: 'Produksi', v: '6.40 MWh/year' },
+      { k: 'Annual Output', v: '6.40 MWh/year' },
       { k: 'Perf. Ratio', v: '79.42%' },
       { k: 'Tool', v: 'PVsyst' },
       { k: 'Status', v: 'COMPLETED' },
     ]
   },
   {
-    id: 5, emoji: '📡',
-    category: 'iot', catLabel: 'IoT',
-    title: 'IoT Room Monitoring — Humidity & Temperature',
-    photos: [
-      'photos/iot-room-monitoring-01.jpg',
-      'photos/iot-room-monitoring-02.jpg'
-    ],
-    desc: 'Sistem monitoring ruangan real-time berbasis IoT menggunakan NodeMCU ESP8266 & sensor DHT11. Data suhu & kelembaban ditransmisikan via WiFi ke aplikasi mobile custom yang dibangun dengan Kodular.',
-    detail: 'Membangun sistem monitoring ruangan berbasis IoT:\n• Hardware: NodeMCU ESP8266 + sensor DHT11\n• Firmware: membaca output analog DHT11, transmisi data via WiFi\n• Interface: aplikasi mobile custom dibangun dengan Kodular untuk remote monitoring\n• Desain lengkap block diagram sistem dan flowchart pipeline data dari sensor input → mikrokontroler processing → tampilan aplikasi mobile',
-    tags: ['NodeMCU ESP8266', 'DHT11', 'WiFi', 'Kodular', 'IoT', 'Mobile App'],
-    specs: [
-      { k: 'MCU', v: 'NodeMCU ESP8266' },
-      { k: 'Sensor', v: 'DHT11 (Suhu & Kelembaban)' },
-      { k: 'Interface', v: 'Mobile App — Kodular' },
-      { k: 'Status', v: 'COMPLETED' },
-    ]
-  },
-  {
-    id: 6, emoji: '🦾',
-    category: 'robotics', catLabel: 'Robotics',
-    title: 'ARJUNA — Autonomous Hexapod SAR Robot 🥇',
-    photos: [
-      'photos/arjuna-hexapod-01.png',
-      'photos/arjuna-hexapod-02.png',
-      'photos/arjuna-hexapod-03.jpeg'
-    ],
-    desc: 'Robot penyelamat otonom berkaki enam (hexapod) untuk KRI 2023 Divisi KRSRI (Kontes Robot SAR Indonesia). Menavigasi arena multi-ruangan, mendeteksi & memadamkan titik api dengan thermal sensor, lalu mengevakuasi korban ke safe zone — sepenuhnya otonom. Juara 1 Regional 1.',
-    detail: 'Memimpin tim untuk mendesain dan membangun ARJUNA, robot SAR otonom berkaki enam (hexapod), pada Indonesian Robot Contest (KRI) 2023, Divisi KRSRI (Kontes Robot SAR Indonesia).\n\nSistem sensor & kontrol:\n• Navigasi wall-following + mapping menggunakan array 8–10 sensor ultrasonik SRF05 tersusun radial\n• Deteksi titik api dengan thermal sensor array AMG8833 (8×8 piksel, jangkauan ±2m)\n• Identifikasi korban menggunakan color sensor TCS3200\n• Gait 6 kaki (3-DOF per kaki) dikendalikan algoritma Inverse Kinematics, distabilkan kontrol PID berbasis sensor jarak\n• 18 servo Dynamixel MX-28, rangka akrilik + 3D print, bodi 4 lantai\n• Sirkuit relay sebagai trigger extinguisher & sensor kompas untuk homing otomatis\n\nRobot menavigasi arena multi-ruangan simulasi bencana, mendeteksi & memadamkan api, menyelamatkan korban ke safe zone menggunakan gripper, lalu kembali ke home — seluruhnya tanpa kendali manual. Berkompetisi melawan tim universitas se-Regional 1 dan meraih Juara 1.',
-    tags: ['Hexapod', 'Inverse Kinematics', 'PID Control', 'Thermal Sensor', 'Sensor Integration', 'Embedded Systems', 'Team Lead'],
-    specs: [
-      { k: 'Konfigurasi', v: 'Hexapod — 18 Servo Dynamixel MX-28' },
-      { k: 'Sensor', v: 'SRF05 (×10) + AMG8833 + TCS3200' },
-      { k: 'Kontrol', v: 'Inverse Kinematics + PID' },
-      { k: 'Prestasi', v: '🥇 Juara 1 Regional 1, KRI 2023' },
-    ]
-  },
-  {
-    id: 7, emoji: '🔒',
-    category: 'embedded', catLabel: 'Embedded Systems',
-    title: 'Smart Door Lock — Fingerprint Security System',
-    photos: [
-      'photos/smart-door-lock-01.jpg',
-      'photos/smart-door-lock-02.jpg',
-      'photos/smart-door-lock-03.jpg'
-    ],
-    desc: 'Smart door lock berbasis fingerprint menggunakan Arduino Uno R3 & solenoid. Logika enrollment, biometric matching >90%, EEPROM storage 5 ID, navigasi LCD, simulasi Proteus, dan validasi hardware fisik.',
-    detail: 'Merancang dan membangun sistem smart door lock berbasis fingerprint (hardware + software):\n• MCU: Arduino Uno R3 | Aktuator: solenoid + relay\n• Logic: fingerprint enrollment, biometric matching (>90% confidence threshold)\n• Storage: EEPROM-based untuk hingga 5 fingerprint ID\n• UI: navigasi menu LCD via 4 push button\n• Simulasi di Proteus (PSPICE) dan divalidasi pada prototipe hardware fisik\n• Output: hardware & software report, block diagram, flowchart, source code, demo video',
-    tags: ['Arduino Uno R3', 'Embedded C', 'Fingerprint', 'EEPROM', 'Proteus', 'Solenoid'],
-    specs: [
-      { k: 'MCU', v: 'Arduino Uno R3' },
-      { k: 'Aktuator', v: 'Solenoid + Relay' },
-      { k: 'Confidence', v: '>90%' },
-      { k: 'Status', v: 'VALIDATED' },
-    ]
-  },
-  {
-    id: 8, emoji: '🌬️',
+    id: 12, emoji: '🌬️',
     category: 'embedded', catLabel: 'Embedded Systems',
     title: 'Automatic Fan & Humidity Control — DHT11',
-    desc: 'Sistem kontrol lingkungan otomatis dengan Arduino Uno, DHT11, relay, fan, dan water pump. 4-condition control logic berbasis threshold sensor ganda (suhu ≥25°C / kelembaban 45%) dengan indikator RGB LED & LCD I2C.',
-    detail: 'Merancang dan membangun sistem kontrol lingkungan otomatis standalone:\n• Komponen: Arduino Uno, DHT11, relay, fan, water pump, LCD I2C, RGB LED\n• Logic: 4-kondisi kontrol berdasarkan threshold sensor ganda (suhu ≥25°C / kelembaban 45%)\n• Fan dan water pump diaktifkan secara independen untuk menjaga kenyamanan ruangan\n• Indikator RGB LED untuk feedback status visual real-time\n• Display LCD: pembacaan suhu (°C) dan kelembaban (%) secara real-time\n• Divalidasi pada prototipe hardware fisik',
+    desc: 'Standalone automatic environmental control system using Arduino Uno, DHT11, relay, fan, and water pump. 4-condition control logic based on dual sensor thresholds (temperature ≥25°C / humidity 45%) with RGB LED indicator & LCD I2C display.',
+    detail: 'Designed and built a standalone automatic environmental control system:\n• Components: Arduino Uno, DHT11, relay, fan, water pump, LCD I2C, RGB LED\n• Logic: 4-condition control based on dual sensor thresholds (temperature ≥25°C / humidity 45%)\n• Fan and water pump activated independently to maintain room comfort without manual input\n• RGB LED indicators for real-time visual status feedback\n• LCD I2C display: real-time temperature (°C) and humidity (%) readout\n• Validated on physical hardware prototype',
     tags: ['Arduino Uno', 'DHT11', 'Relay', 'LCD I2C', 'RGB LED', 'Control Logic'],
     specs: [
       { k: 'MCU', v: 'Arduino Uno' },
       { k: 'Sensor', v: 'DHT11' },
-      { k: 'Aktuator', v: 'Fan + Water Pump' },
+      { k: 'Actuator', v: 'Fan + Water Pump' },
       { k: 'Status', v: 'COMPLETED' },
     ]
   },
@@ -268,7 +324,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type=submit]');
-  btn.textContent = '⏳ Mengirim...';
+  btn.textContent = '⏳ Sending...';
   btn.disabled = true;
 
   const data = new FormData(e.target);
@@ -286,7 +342,7 @@ function handleSubmit(e) {
     }
   })
   .finally(() => {
-    btn.textContent = '⚡ Kirim Pesan';
+    btn.textContent = '⚡ Send Message';
     btn.disabled = false;
   });
 }
@@ -361,7 +417,7 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
   el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.width='36px'; ring.style.height='36px'; });
 });
 
-// HERO "VIDEO" BACKGROUND — animated particle network + oscilloscope wave
+// HERO BACKGROUND
 (function(){
   const canvas = document.getElementById('hero-video-bg');
   if (!canvas) return;
@@ -379,7 +435,7 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
     initNodes();
   }
 
-  // Particle nodes ("konstelasi" elektronik)
+  // Particle nodes
   let nodes = [];
   function initNodes(){
     const count = Math.max(28, Math.min(60, Math.floor((w*h)/28000)));
@@ -397,7 +453,6 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
   let t = 0;
 
   function drawScanWave(){
-    // Baris "osiloskop" tipis di dekat bagian bawah hero
     const baseY = h * 0.82;
     const amp = 14;
     ctx.beginPath();
@@ -411,7 +466,6 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
     }
     ctx.stroke();
 
-    // Trace kedua, lebih redup, warna amber
     ctx.beginPath();
     ctx.strokeStyle = 'rgba(245,158,11,0.18)';
     ctx.lineWidth = 1;
@@ -426,7 +480,6 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
   function draw(){
     ctx.clearRect(0,0,w,h);
 
-    // Update & gambar node
     nodes.forEach(n => {
       n.x += n.vx; n.y += n.vy;
       n.pulse += 0.03;
@@ -434,7 +487,6 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
       if (n.y < 0 || n.y > h) n.vy *= -1;
     });
 
-    // Garis penghubung antar node yang berdekatan
     for (let i = 0; i < nodes.length; i++){
       for (let j = i+1; j < nodes.length; j++){
         const a = nodes[i], b = nodes[j];
@@ -452,7 +504,6 @@ document.querySelectorAll('a,button,.project-card,.filter-btn').forEach(el => {
     }
     ctx.globalAlpha = 1;
 
-    // Titik node dengan glow berdenyut
     nodes.forEach(n => {
       const glow = 0.5 + Math.sin(n.pulse)*0.5;
       ctx.beginPath();

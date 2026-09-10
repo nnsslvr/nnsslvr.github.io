@@ -36,7 +36,7 @@ const projects = [
     ]
   },
   {
-    id: 3, emoji: '🤖',
+    id: 5, emoji: '🤖',
     category: 'ml', catLabel: 'Machine Learning',
     title: 'Handwritten Letter Recognition — EMNIST',
     photos: [
@@ -44,11 +44,11 @@ const projects = [
       'photos/emnist-letter-recognition-02.jpg',
       'photos/emnist-letter-recognition-03.jpg'
     ],
-    desc: 'Pipeline end-to-end OCR-style multi-class classification menggunakan Scikit-learn & Pandas pada 145.600-sample EMNIST Letters dataset. Mencakup preprocessing, feature engineering, EDA, supervised classification, dan evaluasi confusion matrix.',
-    detail: 'Membangun pipeline ML end-to-end untuk klasifikasi huruf tulisan tangan (OCR-style) pada dataset EMNIST Letters (145.600 sampel).\n\nPipeline mencakup:\n• Large-scale preprocessing: normalisasi, reshaping, label encoding, train-test split\n• Feature engineering untuk meningkatkan generalisasi model\n• Supervised multi-class classification (Scikit-learn)\n• EDA & visualisasi distribusi karakter (Matplotlib)\n• Evaluasi performa: accuracy metrics & confusion matrix analysis\n• Reliable recognition across all 26 alphabet classes',
+    desc: 'End-to-end ML pipeline on a 145,600-sample EMNIST Letters dataset. Covers preprocessing, feature engineering, multi-class classification, matrix computation, and confusion matrix evaluation.',
+    detail: 'Built a complete data science & ML pipeline:\n• Data ingestion & transformation: Pandas, NumPy, Scikit-learn (145,600 samples)\n• Linear algebraic transformation arrays & high-dimensional matrix computations\n• Multi-class classification architecture (26 alphabet classes)\n• Performance tracking with Matplotlib: accuracy metrics & confusion matrix analysis\n• Feature engineering to improve model generalization\n• Reusable ML pipeline for future AI/computer vision development',
     tags: ['Python', 'Scikit-learn', 'NumPy', 'Pandas', 'Matplotlib', 'EMNIST', 'OCR'],
     specs: [
-      { k: 'Dataset', v: 'EMNIST Letters (145.600 sampel)' },
+      { k: 'Dataset', v: 'EMNIST Letters (145.600 samples)' },
       { k: 'Framework', v: 'Scikit-learn' },
       { k: 'Task', v: '26-class Classification' },
       { k: 'Status', v: 'COMPLETED' },
